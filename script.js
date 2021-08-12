@@ -17,14 +17,27 @@ function inputDigit(digit) {
   }
 }
 
-function handleOperator(nextOperator) {
-  const { firstOperand, displayValue, operator } = calculator;
-  const inputValue = parseFloat(displayValue);
+function inputDecimal(dot) {
+    if { calculator, waitingForSecondOperand === true) {
+        calculator.displayValue = `0.`;
+        calculator.waitingForSecondOperand = false;
+        return;
+    }
 
-  if (operator && calculator.waitingForSecondOperand) {
-    calculator.operator = nextOperator;
-    return;
-  }
+    if (!calculator.displayValue.includes(dot)) {
+        calculator.displayValue + = dot;
+    }
+}
+function handleOperator(nextOperator) {
+    const { firstOperand, displayValue, operator } = calculator;
+    const inputValue = parseFloat(displayValue);
+
+    if (operator && calculator.waitingForSecondOperand) {
+        calculator.operator = nextOperator;
+        return;
+    }
+
+
 
   if (firstOperand == null && !isNaN(inputValue)) {
     calculator.firstOperand = inputValue;
